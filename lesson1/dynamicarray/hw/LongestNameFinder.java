@@ -16,7 +16,7 @@ public class LongestNameFinder {
             throw new IllegalArgumentException("negative size: " + name.size());
         }
         String longName = "";
-        int i = 0;
+      
         for(String elem: name){
             if(elem.length() > longName.length()){
                 longName = elem;
