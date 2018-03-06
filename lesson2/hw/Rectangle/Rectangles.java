@@ -14,8 +14,8 @@ public class Rectangles {
             throw new  IllegalArgumentException ("negative rectangles - Empty");
         }
         int sum = 0;
-        for (Rectangle elem: rectangles) {
-            sum += elem.areaCounting();
+        for (Rectangle rectangle: rectangles) {
+            sum += rectangle.areaCounting();
         }
         return sum;
     }
