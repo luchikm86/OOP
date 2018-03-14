@@ -1,12 +1,13 @@
 package com.mluch.oop.courseProject;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Account {
     private final long money;
-    private final LocalDate dateRegistration;
+    private final LocalDateTime dateRegistration;
 
-    public Account(long money, LocalDate dateRegistration) {
+    public Account(long money, LocalDateTime dateRegistration) {
         if (money < 0) {
             throw new IllegalArgumentException("negative money quantity: " + money);
         }
@@ -18,7 +19,7 @@ public class Account {
         return money;
     }
 
-    public LocalDate getDateRegistration() {
+    public LocalDateTime getDateRegistration() {
         return dateRegistration;
     }
 

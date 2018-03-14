@@ -1,12 +1,14 @@
 package com.mluch.oop.courseProject;
 
+import java.time.LocalDateTime;
+
 public class Trade {
     private final long id;
     private final long currentRate;
-    private final long startTime;
-    private final long endTime;
+    private final LocalDateTime startTime;
+    private final LocalDateTime endTime;
 
-    public Trade(long id, long currentRate, long startTime, long endTime) {
+    public Trade(long id, long currentRate, LocalDateTime startTime, LocalDateTime endTime) {
         this.id = id;
         this.currentRate = currentRate;
         this.startTime = startTime;
@@ -21,11 +23,11 @@ public class Trade {
         return currentRate;
     }
 
-    public long getStartTime() {
+    public LocalDateTime getStartTime() {
         return startTime;
     }
 
-    public long getEndTime() {
+    public LocalDateTime getEndTime() {
         return endTime;
     }
 
