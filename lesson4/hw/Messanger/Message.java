@@ -1,5 +1,7 @@
 package com.mluch.oop.lesson4.hw.Messanger;
 
+import java.time.LocalDate;
+
 public class Message {
   
   private finaly String author;
