@@ -1,10 +1,9 @@
 package com.mluch.oop.courseProject;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Account {
-    private final long money;
+    private long money;
     private final LocalDateTime dateRegistration;
 
     public Account(long money, LocalDateTime dateRegistration) {

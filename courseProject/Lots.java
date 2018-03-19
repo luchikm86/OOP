@@ -1,16 +1,17 @@
 package com.mluch.oop.courseProject;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Lots {
 
-    private final ArrayList<Lot> lots = new ArrayList<>();
+    private final List<Lot> lots = new ArrayList<>();
 
     public void addLot(Lot lot) {
         lots.add(lot);
     }
 
-    public ArrayList<Lot> getLots() {
+    public List<Lot> getLots() {
         return lots;
     }
 }

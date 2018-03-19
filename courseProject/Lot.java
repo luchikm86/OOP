@@ -1,23 +1,26 @@
 package com.mluch.oop.courseProject;
 
-public class Lot {
-    private final long id;
-    private final String name;
-    private final String category;
-    private final long startingPrice;
-    private final long currentPrice;
-    private final String description;
+import java.util.UUID;
 
-    public Lot(long id, String name, String category, long startingPrice, long currentPrice, String description) {
-        this.id = id;
+public class Lot {
+    private final String id = UUID.randomUUID().toString();;
+    private final String name;
+    private final ProductCategory category;
+    private final long startingPrice;
+//    private final long currentPrice;
+    private final String description;
+    private final UserSeller userSeller;
+
+    public Lot(String name, ProductCategory category, long startingPrice, String description, UserSeller userSeller) {
         this.name = name;
         this.category = category;
         this.startingPrice = startingPrice;
-        this.currentPrice = currentPrice;
+//        this.currentPrice = currentPrice;
         this.description = description;
+        this.userSeller = userSeller;
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
@@ -25,7 +28,7 @@ public class Lot {
         return name;
     }
 
-    public String getCategory() {
+    public ProductCategory getCategory() {
         return category;
     }
 
@@ -33,23 +36,27 @@ public class Lot {
         return startingPrice;
     }
 
-    public long getCurrentPrice() {
-        return currentPrice;
-    }
+//    public long getCurrentPrice() {
+//        return currentPrice;
+//    }
 
     public String getDescription() {
         return description;
     }
 
+    public UserSeller getUserSeller() {
+        return userSeller;
+    }
+
     @Override
     public String toString() {
         return "Lot{" +
-                "id=" + id +
+                "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", category='" + category + '\'' +
+                ", category=" + category +
                 ", startingPrice=" + startingPrice +
-                ", currentPrice=" + currentPrice +
                 ", description='" + description + '\'' +
+                ", userSeller=" + userSeller +
                 '}';
     }
 }

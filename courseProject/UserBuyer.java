@@ -13,6 +13,10 @@ public class UserBuyer {
         this.account = account;
     }
 
+    public String getId() {
+        return id;
+    }
+
     public long getRemainingMoney() {
         return account.getMoney();
     }
