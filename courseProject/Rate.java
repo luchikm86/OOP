@@ -1,23 +1,11 @@
-package com.mluch.oop.courseProject;
-
 import java.time.LocalDateTime;
 
 public class Rate {
     private long currentPrice;
     private final UserBuyer userBuyer;
-    private final LocalDateTime currentTimeRate;
+    private LocalDateTime currentTimeRate;
     private final Lot lot;
 
-    public Rate(long currentPrice, UserBuyer userBuyer, LocalDateTime currentTimeRate, Lot lot) {
-        this.currentPrice = currentPrice;
-        this.userBuyer = userBuyer;
-        this.currentTimeRate = currentTimeRate;
-        this.lot = lot;
-    }
-
-    public long getCurrentPrice() {
-        return currentPrice;
-    }
 
     public UserBuyer getUserBuyer() {
         return userBuyer;
@@ -27,16 +15,45 @@ public class Rate {
         return currentTimeRate;
     }
 
-    public long changeCurrentPrice (long newRate) {
-        if (newRate <= currentPrice) {
-            throw new IllegalArgumentException("Rate is small then current: " + newRate);
+    public Rate(long currentPrice, UserBuyer userBuyer, Lot lot, LocalDateTime currentTimeRate) {
+        this.currentPrice = currentPrice;
+        this.userBuyer = userBuyer;
+        this.lot = lot;
+        this.currentTimeRate = currentTimeRate;
+
+    }
+
+    public Lot getLot() {
+        return lot;
+    }
+
+    public long getCurrentPrice() {
+        return currentPrice;
+    }
+
+    public long changeCurrentPrice(long newRate) {
+        if (checkBuyerNotSeller(userBuyer)) {
+            throw new IllegalArgumentException("buyer not seller");
         }
-//        if (lot.getUserSeller().equals(userBuyer)) {
-//            // подумать как сделать и нужно ли оно
-//        }
+        ;
+        if (newRate <= currentPrice || newRate <= lot.getStartingPrice()) {
+            throw new IllegalArgumentException("Rate is smaller then needed: " + newRate);
+        }
+
 
         currentPrice = newRate;
+
+
         return newRate;
+    }
+
+    public boolean checkBuyerNotSeller(UserBuyer userBuyer) {
+        boolean check = false;
+        if (userBuyer.getAccount().getId().equals(lot.getUserSeller().getAccount().getId())) {
+            return true;
+        }
+
+        return check;
     }
 
     @Override
@@ -44,7 +61,6 @@ public class Rate {
         return "Rate{" +
                 "currentPrice=" + currentPrice +
                 ", userBuyer=" + userBuyer +
-                ", currentTimeRate=" + currentTimeRate +
                 '}';
     }
 }

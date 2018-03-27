@@ -1,21 +1,20 @@
-package com.mluch.oop.courseProject;
-
 import java.util.UUID;
 
 public class Lot {
-    private final String id = UUID.randomUUID().toString();;
+    private final String id = UUID.randomUUID().toString();
     private final String name;
-    private final ProductCategory category;
+    private final  ProductCategory category;
     private final long startingPrice;
-//    private final long currentPrice;
+    /*private final long currentPrice;*/
     private final String description;
     private final UserSeller userSeller;
 
-    public Lot(String name, ProductCategory category, long startingPrice, String description, UserSeller userSeller) {
+    public Lot( UserSeller userSeller, String name, ProductCategory category, long startingPrice /*long currentPrice*/, String description) {
+
         this.name = name;
         this.category = category;
         this.startingPrice = startingPrice;
-//        this.currentPrice = currentPrice;
+       /* this.currentPrice = currentPrice;*/
         this.description = description;
         this.userSeller = userSeller;
     }
@@ -36,9 +35,9 @@ public class Lot {
         return startingPrice;
     }
 
-//    public long getCurrentPrice() {
-//        return currentPrice;
-//    }
+ /*   public long getCurrentPrice() {
+        return currentPrice;
+    }*/
 
     public String getDescription() {
         return description;
@@ -51,12 +50,12 @@ public class Lot {
     @Override
     public String toString() {
         return "Lot{" +
-                "id='" + id + '\'' +
+                "id=" + id +
                 ", name='" + name + '\'' +
-                ", category=" + category +
+                ", category='" + category + '\'' +
                 ", startingPrice=" + startingPrice +
+                /*", currentPrice=" + currentPrice +*/
                 ", description='" + description + '\'' +
-                ", userSeller=" + userSeller +
                 '}';
     }
 }

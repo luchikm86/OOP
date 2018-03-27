@@ -1,24 +1,25 @@
-package com.mluch.oop.courseProject;
 
-import java.sql.Time;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
 public class Trade {
-    private final String id = UUID.randomUUID().toString();;
-    private final Rate rate;
-    private final Lot lot;
+    private final String id = UUID.randomUUID().toString();
+    private  Rate rate;
     private final LocalDateTime startTime;
     private final LocalDateTime endTime;
-    private final List<Rate> ratesHistiry = new ArrayList<>();
+   private final Lot lot;
+   private final List<Rate> ratesHistory = new ArrayList<>();
 
-    public Trade(Rate rate, Lot lot, LocalDateTime startTime, LocalDateTime endTime) {
+
+    public Trade( Lot lot, Rate rate, LocalDateTime startTime, LocalDateTime endTime) {
+
         this.rate = rate;
-        this.lot = lot;
         this.startTime = startTime;
         this.endTime = endTime;
+        this.lot=lot;
     }
 
     public String getId() {
@@ -26,11 +27,7 @@ public class Trade {
     }
 
     public Rate getRate() {
-        return rate;
-    }
-
-    public Lot getLot() {
-        return lot;
+        return ratesHistory.get(ratesHistory.size()-1);
     }
 
     public LocalDateTime getStartTime() {
@@ -40,34 +37,39 @@ public class Trade {
     public LocalDateTime getEndTime() {
         return endTime;
     }
-
-    public List<Rate> addRate() {
-        checkTimeOut();
-        ratesHistiry.add(rate);
-        return ratesHistiry;
+    public Lot getLot() {
+        return lot;
     }
 
-    public boolean checkTimeOut() {
-        if (rate.getCurrentTimeRate().isAfter(endTime)) {
-            System.out.println("Sorry");
-            checkWinner();
+    public List<Rate> getRatesHistory() {
+        return ratesHistory;
+    }
+
+    public List<Rate> addRate(Rate rate){
+        checkTimeOut();
+        this.rate = rate;
+        ratesHistory.add(rate);
+        return ratesHistory;
+    }
+    public boolean checkTimeOut(){
+        if(rate.getCurrentTimeRate().isAfter(endTime)){
+            throw new IllegalArgumentException("You are out of time, you should have finished by: "+ endTime + "but now is: " +rate.getCurrentTimeRate());
         }
         return true;
     }
+    public UserBuyer checkWinner (){
+       int winn = ratesHistory.lastIndexOf(ratesHistory);
+       Rate Winner = ratesHistory.get(winn);
+      UserBuyer Winnerr = Winner.getUserBuyer();
+       return Winnerr;
 
-    public UserBuyer checkWinner() {
-        int winn = ratesHistiry.lastIndexOf(ratesHistiry);
-        Rate Winner = ratesHistiry.get(winn);
-        UserBuyer Winnerr = Winner.getUserBuyer();
-        return Winnerr;
     }
 
     @Override
     public String toString() {
         return "Trade{" +
-                "id='" + id + '\'' +
-                ", rate=" + rate +
-                ", lot=" + lot +
+                "id=" + id +
+                ", currentRate=" + rate +
                 ", startTime=" + startTime +
                 ", endTime=" + endTime +
                 '}';

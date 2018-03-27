@@ -1,9 +1,9 @@
-package com.mluch.oop.courseProject;
+
 
 import java.util.UUID;
 
 public class UserBuyer {
-    private final String id = UUID.randomUUID().toString();
+
     private final String name;
     private final Account account;
 
@@ -13,18 +13,18 @@ public class UserBuyer {
         this.account = account;
     }
 
-    public String getId() {
-        return id;
-    }
-
     public long getRemainingMoney() {
         return account.getMoney();
+    }
+
+    public Account getAccount() {
+        return account;
     }
 
     @Override
     public String toString() {
         return "UserBuyer{" +
-                "id='" + id + '\'' +
+
                 ", name='" + name + '\'' +
                 '}';
     }

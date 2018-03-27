@@ -1,8 +1,9 @@
-package com.mluch.oop.courseProject;
+
 
 public enum ProductCategory {
 
-    technique(1), antiques(2), electronics(3), other(4);
+
+    TECHNIQUE(1), ANTIQUES(2), ELECTRONICS(3), OTHER(4);
 
     private final int id;
 
@@ -14,7 +15,7 @@ public enum ProductCategory {
         return id;
     }
 
-    public static String getClassName() {
+    public static String getClassName() { // TODO: ?
         return ProductCategory.class.getName();
     }
 }
