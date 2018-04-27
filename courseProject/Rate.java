@@ -1,3 +1,5 @@
+package com.mluch.oop.courseProject;
+
 import java.time.LocalDateTime;
 
 public class Rate {

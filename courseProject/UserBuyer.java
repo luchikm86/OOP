@@ -1,12 +1,10 @@
-
+package com.mluch.oop.courseProject;
 
 import java.util.UUID;
 
 public class UserBuyer {
-
     private final String name;
     private final Account account;
-
 
     public UserBuyer(String name, Account account) {
         this.name = name;

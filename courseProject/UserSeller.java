@@ -1,10 +1,10 @@
+package com.mluch.oop.courseProject;
+
 import java.util.UUID;
 
 public class UserSeller {
-
     private final String name;
     private final Account account;
-
 
     public UserSeller(String name, Account account) {
         this.name = name;
@@ -30,5 +30,4 @@ public class UserSeller {
                 ", name='" + name + '\'' +
                 '}';
     }
-
 }

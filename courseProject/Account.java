@@ -1,10 +1,11 @@
-import java.time.LocalDate;
+package com.mluch.oop.courseProject;
+
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 public class Account {
     private final String id = UUID.randomUUID().toString();
-    private final long money;
+    private long money;
     private final LocalDateTime dateRegistration;
 
     public Account(long money, LocalDateTime dateRegistration) {
@@ -27,6 +28,10 @@ public class Account {
 
     public String getId() {
         return id;
+    }
+
+    public long setMoney(long money) {
+        return this.money = money;
     }
 
     @Override

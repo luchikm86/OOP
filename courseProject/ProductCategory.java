@@ -1,7 +1,6 @@
-
+package com.mluch.oop.courseProject;
 
 public enum ProductCategory {
-
 
     TECHNIQUE(1), ANTIQUES(2), ELECTRONICS(3), OTHER(4);
 
